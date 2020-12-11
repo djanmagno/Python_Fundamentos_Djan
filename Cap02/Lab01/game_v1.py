@@ -1,10 +1,13 @@
 # Game Ping-Pong
 
+#Importando Bibliotecas
 from tkinter import *
 import random
 import time
 
+#Declarando Variável com input e transformando em inteiro o que recebe do input
 level = int(input("Qual nível você gostaria de jogar? 1/2/3/4/5 \n"))
+#Declara Variável e faz um cálculo
 length = 500/level
 
 
@@ -23,12 +26,13 @@ count = 0
 lost = False
 
 class Bola:
+    #Funcoes
     def __init__(self, canvas, Barra, color):
         self.canvas = canvas
         self.Barra = Barra
         self.id = canvas.create_oval(0, 0, 15, 15, fill=color)
         self.canvas.move(self.id, 245, 200)
-
+        #Lista
         starts_x = [-3, -2, -1, 1, 2, 3]
         random.shuffle(starts_x)
 
@@ -43,7 +47,7 @@ class Bola:
         self.canvas.move(self.id, self.x, self.y)
 
         pos = self.canvas.coords(self.id)
-
+        #Sinais de compracao
         if pos[1] <= 0:
             self.y = 3
 
